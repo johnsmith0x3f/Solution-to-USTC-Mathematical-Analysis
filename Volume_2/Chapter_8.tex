@@ -1,0 +1,84 @@
+\chapter{空间解析几何}
+
+\section{向量与坐标系}
+
+\begin{problem}{MAgreen}{8.1.5}
+    证明 $\bs a \times \bs b \cdot \bs c = \bs b \times \bs c \cdot \bs a = \bs c \times \bs a \cdot \bs b$.
+\end{problem}
+
+\begin{proof}
+    考虑第一个等号. 注意到 $\bs a \times \bs b \cdot \bs a = 0$，则
+    \begin{align*}
+        \bs a \times \bs b \cdot \bs c &= \bs a \times \bs b \cdot \bs c - \bs c \times \bs b \cdot \bs c + (\bs a - \bs c) \times \bs b \cdot (\bs a - \bs c) - \bs a \times \bs b \cdot \bs a \\
+        &= -\bs c \times \bs b \cdot \bs a = \bs b \times \bs c \cdot \bs a.
+    \end{align*}
+    其余同理.
+\end{proof}
+
+\begin{problem}{MAgreen}{8.1.8}
+    设 $\bs a, \bs b, \bs c$ 是满足 $\bs a + \bs b + \bs c = \bs 0$ 的单位向量，试求 $\bs a \cdot \bs b + \bs b \cdot \bs c + \bs c \cdot \bs a$ 的值.
+\end{problem}
+
+\begin{solution}
+    变形 $\bs a + \bs b + \bs c = \bs 0$ 得 $\bs b = -(\bs a + \bs c)$，则
+    \[
+        \sum_{\mathrm{cyc}} \bs a \cdot \bs b = - \sum_{\mathrm{cyc}} \bs a \cdot (\bs a + \bs c) = -3 - \sum_{\mathrm{cyc}} \bs a \cdot \bs b.
+    \]
+    故 $\bs a \cdot \bs b + \bs b \cdot \bs c + \bs c \cdot \bs a = -\frac 3 2$.
+\end{solution}
+
+\begin{problem}{MAgreen}{8.1.13}
+    已知 $\bs a, \bs b, \bs c$ 不共线，且 $\bs a \times \bs b = \bs b \times \bs c = \bs c \times \bs a$，求证：$\bs a + \bs b + \bs c = \bs 0$.
+\end{problem}
+
+\begin{proof}
+    由 $\bs a \times \bs a = 0$ 知
+    \[
+        \bs 0 = \bs c \times \bs a - \bs a \times \bs b + \bs a \times \bs a = (\bs a + \bs b + \bs c) \times \bs a.
+    \]
+    同理有 $(\bs a + \bs b + \bs c) \times \bs b = \bs 0$. 又 $\bs a, \bs b$ 不共线，故 $\bs a + \bs b + \bs c = \bs 0$.
+\end{proof}
+
+\section{平面与直线}
+
+\begin{problem}{MAgreen}{8.2.3}
+    设平面过点 $(5, -7, 4)$ 且在 $x, y, z$ 三轴上的截距相等，求平面方程.
+\end{problem}
+
+\begin{solution}
+    设平面法向量为 $\bs n = (a, b, c)$，其在三轴上的截距为 $d$，则有
+    \[
+        \begin{cases}
+            a(d-5) + b(0+7) + c(0-4) = 0, \\
+            a(0-5) + b(d+7) + c(0-4) = 0, \\
+            a(0-5) + b(0+7) + c(d-4) = 0. \\
+        \end{cases}
+    \]
+    解得 $a = b = c$，故平面方程为 $(x-5) + (y+7) + (z-4) = 0$.
+\end{solution}
+
+\section{二次曲面}
+
+\begin{problem}{MAgreen}{8.3.8}
+    一动点 $P(x, y, z)$ 到原点的距离等于它到平面 $z = 4$ 的距离，试求此动点 $P$ 的轨迹，并判定它是什么曲面.
+\end{problem}
+
+\begin{solution}
+    由题对 $P$ 有
+    \[
+        \sqrt{x^2 + y^2 + z^2} = |z - 4|.
+    \]
+    整理得 $x^2 + y^2 = -8z + 16$. 故其为曲线
+    \[
+        \begin{cases}
+            x^2 = -8z + 16, \\
+            y = 0
+        \end{cases}
+    \]
+    绕 $z$ 轴旋转所得的曲面.
+\end{solution}
+
+\section{其它常用坐标系和坐标变换}
+
+\section*{第 8 章综合习题}
+\addcontentsline{toc}{section}{第 8 章综合习题}

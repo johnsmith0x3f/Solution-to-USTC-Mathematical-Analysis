@@ -1,0 +1,541 @@
+\chapter{极限}
+
+\section{实数}
+
+\begin{problem}{MAblue}{1.1.1}
+    设 $a$ 是有理数，$b$ 是无理数. 求证：$a + b$ 和 $a - b$ 都是无理数；当 $a \neq 0$ 时，$ab$ 和 $\frac b a$ 也是无理数.
+\end{problem}
+
+\begin{proof}
+    以加法为例. 考虑反证法. 若 $a + b = c \in \Q$，则 $b = c - a \in \Q$，矛盾，故 $a + b$ 是无理数.
+\end{proof}
+
+\begin{problem}{MAblue}{1.1.2}
+    求证：两个不同的有理数之间有无理数.
+\end{problem}
+
+\begin{proof}
+    对有理数 $a, b \ (a < b)$，取 $c = a + \frac {\sqrt 2} 2 (b-a) \in (a, b)$ 即可证得.
+\end{proof}
+
+\begin{think}
+    如何证明任意两实数间均有无理数？
+\end{think}
+
+\begin{problem}{MAblue}{1.1.3}
+    求证：$\sqrt 2, \sqrt 3$ 以及 $\sqrt 2 + \sqrt 3$ 都是无理数.
+\end{problem}
+
+\begin{proof}
+    考虑以下引理：
+    \begin{center}
+        \begin{minipage}{0.85\textwidth}
+            \begin{lemma}{}{}
+                对任意正整数 $n$，$\sqrt n$ 是有理数当且仅当 $n$ 是完全平方数.
+                \tcblower
+                \begin{proof}
+                    充分性是显然的，下证必要性. 设
+                    \[
+                        \sqrt n = \frac a b,
+                    \]
+                    其中 $a, b$ 是互质的正整数. 则
+                    \[
+                        nb^2 = a^2.
+                    \]
+                    考虑 $n$ 的某个质因子 $p$，有 $p \mid a^2$，进而 $p \mid a$. 又 $a, b$ 互质，故 $p \nmid b$. 这说明 $n$ 的唯一分解中所有质因子的次数都是偶数，从而 $n$ 是完全平方数.
+                \end{proof}
+            \end{lemma}
+        \end{minipage}
+    \end{center}
+    由引理知，$\sqrt 2, \sqrt 3, \sqrt 6$ 均为无理数. 则若 $\sqrt 2 + \sqrt 3$ 是有理数，可得 $(\sqrt 2 + \sqrt 3)^2 = 5 + 2 \sqrt 6$ 亦为有理数，这与 $\sqrt 6$ 是无理数矛盾，故 $\sqrt 2 + \sqrt 3$ 是无理数.
+\end{proof}
+
+\begin{problem}{MAblue}{1.1.6}
+    设实数 $a_1, a_2, \ldots, a_n$ 有相同的符号，且都大于 $-1$，证明：
+    \[
+        (1+a_1)(1+a_2) \cdots (1+a_n) \geqslant 1 + a_1 + a_2 + \cdots + a_n.
+    \]
+\end{problem}
+
+\begin{proof}
+    设 $x_n = \prod_{i=1}^n (1 + a_i) - (1 + \sum_{i=1}^n a_i)$，则
+    \[
+        x_{n+1} - x_n = a_{n+1} \left( \prod_{i=1}^n (1 + a_i) - 1 \right).
+    \]
+    若 $a_i \geqslant 0$，显然有 $x_{n+1} \geqslant x_n$；若 $a_i < 0$，此时 $(1+a_1)(1+a_2)\cdots(1+a_n) < 1$，亦有 $x_{n+1} > x_n$，故 $\{ x_n \}$ 为递增数列. 可得 $x_n \geqslant x_1 = 0$.
+\end{proof}
+
+事实上，此即 \textbf{Bernoulli 不等式}的一般形式.
+\begin{center}
+    \begin{minipage}{0.85\textwidth}
+        \begin{theorem}{Bernoulli 不等式}{}
+            若 $a_1, a_2, \cdots, a_n$ 同号，且都大于 $-1$，则有
+            \[
+                (1 + a_1)(1 + a_2) \cdots (1 + a_n) \geqslant 1 + a_1 + a_2 + \cdots + a_n.
+            \]
+            特别地，当 $a_1 = a_2 = \cdots = a_n = x$ 时，有
+            \[
+                (1 + x)^n \geqslant 1 + nx,
+            \]
+            当且仅当 $x = 0$ 时，等号成立.
+        \end{theorem}
+    \end{minipage}
+\end{center}
+
+\begin{mmark}
+    Bernoulli 不等式的一般形式仅需其中 $n-1$ 项为零即可取等.
+\end{mmark}
+
+\begin{problem}{MAblue}{1.1.7}
+    设 $a, b$ 是实数，且 $|a| < 1,\ |b| < 1$，证明：
+    \[
+        \left| \frac{a+b}{1+ab} \right| < 1.
+    \]
+\end{problem}
+
+\begin{proof}
+    注意到 $(a-1)(b-1) > 0$ 及 $(a+1)(b+1) > 0$，即 $1+ab > \pm(a+b)$. 故
+    \[
+        |1+ab| = 1+ab > |a+b| \quad \Rightarrow \quad \left| \frac{a+b}{1+ab} \right| < 1. \qedhere
+    \]
+\end{proof}
+
+\section{数列极限}
+
+\begin{problem}{MAblue}{1.2.15}
+    求下列极限：
+    \begin{enumerate}
+        \item[(1)]
+        $\displaystyle \lim_{n \to \infty} \left( \frac 1 {(n+1)^2} + \frac 1 {(n+2)^2} + \cdots + \frac 1 {(2n)^2} \right)$；
+        \item[(2)]
+        $\displaystyle \lim_{n \to \infty} \left( (n+1)^k - n^k \right)$，其中 $0 < k < 1$；
+        \item[(3)]
+        $\displaystyle \lim_{n \to \infty} \left( \sqrt 2 \cdot \sqrt[4] 2 \cdots \sqrt[2^n] 2 \right)$；
+        \item[(4)]
+        $\displaystyle \lim_{n \to \infty} \sqrt[n]{n^2 - n + 2}$；
+        \item[(5)]
+        $\displaystyle \lim_{n \to \infty} \sqrt[n]{\cos^2 1 + \cos^2 2 + \cdots + \cos^2 n}$.
+    \end{enumerate}
+\end{problem}
+
+\begin{enumerate}
+    \item[(1)]
+    \begin{solution}
+        注意到
+        \[
+            0 < \sum_{i=n+1}^{2n} \frac 1 {i^2} < \sum_{i=n+1}^{2n} \frac 1 {(i-1)i} = \frac 1 n - \frac 1 {2n} = \frac 1 {2n}.
+        \]
+        故由夹逼原理知，$\lim_{n \to \infty} \left( \frac 1 {(n+1)^2} + \frac 1 {(n+2)^2} + \cdots + \frac 1 {(2n)^2} \right) = 0$.
+    \end{solution}
+    \item[(2)]
+    \begin{solution}
+        注意到
+        \[
+            0 < (n+1)^k - n^k = n^k \left( \left( 1 + \frac 1 n \right)^k - 1 \right) < n^k \left( 1 + \frac 1 n - 1 \right) = n^{k-1}.
+        \]
+        故由夹逼原理知，$\lim_{n \to \infty} \left( (n+1)^k - n^k \right) = 0$.
+    \end{solution}
+    \item[(3)]
+    \begin{solution}
+        易知 $\sqrt 2 \cdot \sqrt[4] 2 \cdots \sqrt[2^n] 2 = \frac 2 {\sqrt[2^n] 2}$，故 $\lim_{n \to \infty} \sqrt 2 \cdot \sqrt[4] 2 \cdots \sqrt[2^n] 2 = 2$.
+    \end{solution}
+    \item[(4)]
+    \begin{solution}
+        注意到
+        \[
+            \sqrt[n] n < \sqrt[n]{n^2 - n + 2} < \sqrt[n]{n^2}.
+        \]
+        故由夹逼原理知，$\lim_{n \to \infty} \sqrt[n]{n^2 - n + 2} = 1$.
+    \end{solution}
+    \item[(5)]
+    \begin{solution}
+        注意到 $\cos^2 3 + \cos^2 4 > \cos^2 \frac {3\pi} 4 + \cos^2 \frac {5\pi} 4 = 1$，则当 $n > 3$ 时，有
+        \[
+            1 < \sqrt[n]{\cos^2 1 + \cos^2 2 + \cdots + \cos^2 n} < \sqrt[n] n.
+        \]
+        故由夹逼原理知，$\lim_{n \to \infty} \sqrt[n]{\cos^2 1 + \cos^2 2 + \cdots + \cos^2 n} = 1$.
+    \end{solution}
+\end{enumerate}
+
+\begin{problem}{MAblue}{1.2.16}
+    设 $a_1, a_2, \ldots, a_m$ 为 $m$ 个正数，证明：
+    \[
+        \lim_{n \to \infty} \sqrt[n]{a_1^n + a_2^n + \cdots + a_m^n} = \max(a_1, a_2, \ldots, a_m).
+    \]
+\end{problem}
+
+\begin{proof}
+    不妨设 $A = \max( a_1,\ a_2,\ \ldots,\ a_m)$，则
+    \[
+        A \leqslant \sqrt[n]{a_1^n+a_2^n+\cdots+a_m^n} \leqslant A \sqrt[n] m
+    \]
+    故由夹逼原理知，$\lim_{n \to \infty} \sqrt[n]{a_1^n+a_2^n+\cdots+a_m^n} = A$.
+\end{proof}
+
+\begin{problem}{MAblue}{1.2.17}
+    证明下列数列收敛：
+    \begin{enumerate}
+        \item[(1)]
+        $a_n = \left( 1 - \frac 1 2 \right) \left( 1 - \frac 1 {2^2} \right) \cdots \left( 1 - \frac 1 {2^n} \right)$；
+        \item[(2)]
+        $a_n = \frac 1 {3+1} + \frac 1 {3^2 + 1} + \cdots + \frac 1 {3^n+1}$；
+        \item[(3)]
+        $a_n = \alpha_0 + \alpha_1 q + \cdots + \alpha_n q^n$，其中 $|\alpha_k| \leqslant M \ (k = 1, 2, \cdots)$，而 $|q| < 1$；
+        \item[(4)]
+        $a_n = \frac{\cos 1}{1 \cdot 2} + \frac{\cos 2}{2 \cdot 3} + \cdots + \frac{\cos n}{n \cdot (n+1)}$.
+    \end{enumerate}
+\end{problem}
+
+\begin{enumerate}
+    \item[(1)]
+    \begin{proof}
+        显然有 $0 < a_{n+1} < a_n$，故由单调有界原理知数列 $\{ a_n \}$ 收敛.
+    \end{proof}
+    \item[(2)]
+    \begin{proof}
+        显然有 $a_{n+1} > a_n$，又
+        \[
+            a_n = \sum_{i=1}^n \frac 1 {3^i+1} < \sum_{i=1}^n \frac 1 {3^i} = \frac 1 2 \left( 1 - \frac 1 {3^n} \right) < \frac 1 2.
+        \]
+        故由单调有界原理知数列 $\{ a_n \}$ 收敛.
+    \end{proof}
+    \item[(3)]
+    \begin{proof}
+        对任意 $\varepsilon > 0$，取 $N = \left[ \log_q \left( \frac {\varepsilon (1-q)} M \right) \right]$，则当 $m > n > N$ 时，有
+        \[
+            |a_n - a_m| = |q|^n |\alpha_{n+1} q + \alpha_{n+2} q^2 + \cdots + \alpha_m q^{m-n}| < |q|^n \frac M {1-q} < \varepsilon.
+        \]
+        则由 Cauchy 收敛准则知，数列 $\{ a_n \}$ 收敛.
+    \end{proof}
+    \item[(4)]
+    \begin{proof}
+        对任意 $\varepsilon > 0$，取 $N = \left[ \frac 1 \varepsilon \right]$，则当 $m > n > N$ 时，有
+        \[
+            |a_n - a_m| = \left| \sum_{i=n+1}^m \frac{\cos i}{i(i+1)} \right| < \sum_{i=n+1}^m \left| \frac 1 {i(i+1)} \right| = \frac 1 {n+1} - \frac 1 {m+1} < \varepsilon.
+        \]
+        则由 Cauchy 收敛准则知，数列 $\{ a_n \}$ 收敛.
+    \end{proof}
+\end{enumerate}
+
+\begin{problem}{MAblue}{1.2.18}
+    证明下列数列收敛，并求出其极限：
+    \begin{enumerate}
+        \item[(1)]
+        $a_n = \frac n {c^n} \ (c > 1)$；
+        \item[(2)]
+        $a_1 = \frac c 2,\ a_{n+1} = \frac c 2 + \frac {a_n^2} 2 \ (0 \leqslant c \leqslant 1)$；
+        \item[(3)]
+        $a > 0,\ a_0 > 0,\ a_{n+1} = \frac 1 2 \left( a_n + \frac a {a_n} \right)$；（提示：先证明 $a_n^2 \geqslant a$.）
+        \item[(4)]
+        $a_0 = 1,\ a_n = 1 + \frac{a_{n-1}}{a_{n-1}+1}$；
+        \item[(5)]
+        $a_n = \sin \sin \cdots \sin 1$.（$n$ 个 $\sin$.）
+    \end{enumerate}
+\end{problem}
+
+\begin{enumerate}
+    \item[(1)]
+    \begin{proof}
+        不妨设 $c = 1 + a \ (a > 0)$，由此得
+        \[
+            0 < a_n = \frac n {c^n} = \frac n {1 + na + \frac {n(n-1)} 2 a + \cdots + a^n} < \frac 2 {(n-1)a}.
+        \]
+        则对任意 $\varepsilon > 0$，取 $N = \left[ \frac 2 {a\varepsilon} \right] + 1$，可得当 $n > N$ 时有 $|a_n| < \varepsilon$，故数列 $\{ a_n \}$ 收敛，且 $\lim_{n \to \infty} a_n = 0$.
+    \end{proof}
+    \item[(2)]
+    \begin{proof}
+        注意到 $a_1 = \frac c 2 \leqslant 1 - \sqrt{1-c}$，且
+        \[
+            a_k \leqslant 1 - \sqrt{1-c} \ \Rightarrow \ a_{k+1} \leqslant \frac c 2 + \frac {(1-\sqrt{1-c})^2} 2 = 1 - \sqrt{1-c}.
+        \]
+        故 $a_n \leqslant 1 - \sqrt{1-c} \ (n = 1, 2, \cdots)$. 进而
+        \[
+            a_{n+1} - a_n = \frac 1 2 (a_n - 1)^2 - \frac {1-c} 2 \geqslant \frac 1 2 (1 - \sqrt{1-c} - 1)^2 - \frac {1-c} 2 = 0.
+        \]
+        即数列 $\{ a_n \}$ 单调递增有上界，故收敛.
+    \end{proof}
+    设 $\lim_{n \to \infty} a_n = a$，则
+    \[
+        a = \frac c 2 + \frac {a^2} 2 \leqslant 1 - \sqrt{1-c}.
+    \]
+    解得 $a = 1 - \sqrt{1-c}$.
+    \item[(3)]
+    \begin{proof}
+        注意到 $a_{n+1} = \frac 1 2 \left( a_n + \frac a {a_n} \right) \geqslant \frac 1 2 \cdot 2 \sqrt{a_n \cdot \frac a {a_n}} = \sqrt a$，则当 $n \geqslant 1$ 时
+        \[
+            a_{n+1} - a_n = \frac 1 2 \left( \frac a {a_n} - a_n \right) \leqslant 0.
+        \]
+        即数列 $\{ a_n \}$ 单调递减有下界，故收敛.
+    \end{proof}
+    设 $\lim_{n \to \infty} a_n = \alpha$，则
+    \[
+        \alpha = \frac 1 2 \left( \alpha + \frac a \alpha \right) \geqslant \sqrt a.
+    \]
+    解得 $\alpha = \sqrt a$.
+    \item[(4)]
+    \begin{proof}
+        注意到 $a_0 = 1 \leqslant \frac {\sqrt 5 + 1} 2$，且
+        \[
+            a_k \leqslant \frac {\sqrt 5 + 1} 2 \ \Rightarrow \ a_{k+1} = 2 - \frac 1 {a_k + 1} \leqslant 2 - \frac 1 {\frac {\sqrt 5 + 1} 2 + 1} = \frac {\sqrt 5 + 1} 2.
+        \]
+        故 $0 < a_n \leqslant \frac {\sqrt 5 + 1} 2 \ (n = 0, 1, \cdots)$. 进而
+        \[
+            a_{n+1} - a_n = \frac 1 {a_n + 1} \left( -\left( a_n - \frac 1 2 \right)^2 + \frac 5 4 \right) \geqslant 0.
+        \]
+        即数列 $\{ a_n \}$ 单调递增有上界，故收敛.
+    \end{proof}
+    设 $\lim_{n \to \infty} a_n = a$，则
+    \[
+        0 \leqslant a = 1 + \frac a {a+1} \leqslant \frac {\sqrt 5 + 1} 2.
+    \]
+    解得 $a = \frac {\sqrt 5 + 1} 2$.
+    \item[(5)]
+    \begin{proof}
+        显然有 $0 < a_{n+1} < a_n$，故由单调有界原理知数列 $\{ a_n \}$ 收敛.
+    \end{proof}
+    设 $\lim_{n \to \infty} a_n = a$，则有
+    \[
+        a = \sin a \ \Rightarrow \ a = 0.
+    \]
+\end{enumerate}
+
+\begin{think}
+    如何求一般递推数列的极限？
+\end{think}
+
+\begin{problem}{MAblue}{1.2.21}
+    设 $\{ a_n \}, \{ b_n \}$ 是正数列，满足 $\frac{a_{n+1}}{a_n} \leqslant \frac{b_{n+1}}{b_n} \ (n = 1, 2, \cdots)$. 求证：若 $\{ b_n \}$ 收敛，则 $\{ a_n \}$ 收敛.
+\end{problem}
+
+\begin{proof}
+    由题设知 $0 < \frac{a_{n+1}}{b_{n+1}} \leqslant \frac{a_n}{b_n}$，由单调有界原理知数列 $\left\{ \frac{a_n}{b_n} \right\}$ 收敛. 则
+    \[
+        \lim_{n \to \infty} a_n = \left( \lim_{n \to \infty} \frac{a_n}{b_n} \right) \left(\lim_{n \to \infty} b_n \right). \qedhere
+    \]
+\end{proof}
+
+\begin{problem}{MAblue}{1.2.25}
+    设数列 $\{ a_n \}$ 由 $a_1 = 1,\ a_{n+1} = a_n + \frac 1 {a_n} \ (n \geqslant 1)$ 定义. 证明：$a_n \to +\infty \ (n \to \infty)$.
+\end{problem}
+
+\begin{proof}
+    考虑反证法. 假设存在 $M > 0$，使 $0 < a_n \leqslant M$ 恒成立，则
+    \[
+        a_{M^2+1} = 1 + \frac 1 {a_1} + \frac 1 {a_2} + \cdots + \frac 1 {a_{M^2}} \geqslant 1 + M^2 \cdot \frac 1 M > M
+    \]
+    与假设矛盾. 故 $ a_n \to +\infty \ (n \to \infty)$.
+\end{proof}
+
+\begin{problem}{MAblue}{1.2.26}
+    给出 $\frac 0 0$ 型 Stolz 定理的证明.
+\end{problem}
+
+\begin{proof}
+    由题设知 $\forall \varepsilon > 0,\ \exists N \in \N_+$ 使得 $n > N$ 时有
+    \[
+        A - \varepsilon < \frac{a_{n+1} - a_n}{b_{n+1} - b_n} < A + \varepsilon.
+    \]
+    由于 $\{ b_n \}$ 严格单调递减，则有
+    \[
+        (A - \varepsilon)(b_n - b_{n+1}) < a_n - a_{n+1} < (A + \varepsilon)(b_n - b_{n+1}).
+    \]
+    取正整数 $m > n$，累加得
+    \[
+        (A - \varepsilon)(b_n - b_m) < a_n - a_m < (A + \varepsilon)(b_n - b_m).
+    \]
+    即 $\left| \frac{a_n - a_m}{b_n - b_m} - A \right| < \varepsilon$，令 $m \to \infty$ 即得 $\left| \frac{a_n}{b_n} - A \right| < \varepsilon$.
+\end{proof}
+
+\section{函数极限}
+
+\begin{problem}{MAblue}{1.3.7}
+    求证：
+    \[
+        \lim_{n \to \infty} \left( \sin \frac \alpha {n^2} + \sin \frac{2\alpha}{n^2} + \cdots + \sin \frac{n\alpha}{n^2} \right) = \frac \alpha 2.
+    \]
+\end{problem}
+
+\begin{proof}
+    注意到 $n \to \infty$ 时，有 $\sin \frac{i\alpha}{n^2} \sim \frac{i\alpha}{n^2} \ (i \in {1, 2, \cdots, n})$. 则
+    \[
+        \lim_{n \to \infty} \left( \sum_{i=1}^n \sin \frac{i\alpha}{n^2} \right) = \lim_{n \to \infty} \left( \sum_{i=1}^n \frac{i\alpha}{n^2} \right) = \lim_{n \to \infty} \frac{n(n-1)\alpha}{2n^2} = \frac \alpha 2 \qedhere
+    \]
+\end{proof}
+
+\begin{think}
+    如何证明 $\lim_{n \to \infty} \left( \sin \frac \alpha n + \sin \frac {2\alpha} n + \cdots + \sin \frac \alpha n \right) = +\infty$？
+\end{think}
+
+\begin{problem}{MAblue}{1.3.9}
+    求下列极限：
+    \begin{enumerate}
+        \item[(1)]
+        $\displaystyle \lim_{x \to 0} \frac{\tan 2x}{\sin 5x}$；
+        \item[(2)]
+        $\displaystyle \lim_{x \to 0} \frac{\cos x - \cos 3x}{x^2}$；
+        \item[(3)]
+        $\displaystyle \lim_{x \to +\infty} \left( \frac{x+1}{2x-1} \right)^x$；
+        \item[(4)]
+        $\displaystyle \lim_{x \to \infty} \left( \frac{x^2+1}{x^2-1} \right)^{x^2}$.
+    \end{enumerate}
+\end{problem}
+
+\begin{enumerate}
+    \item[(4)]
+    \begin{solution}
+        \vspace{0.15em}
+        整理得
+        \[
+            \lim_{x \to \infty} \left(\frac{x^2+1}{x^2-1}\right)^{x^2} = \lim_{x \to \infty} \left(1+\frac 1 {x^2}\right)^{x^2} \cdot \left(1+\frac 1 {x^2-1}\right)^{x^2} = e^2
+        \]
+    \end{solution}
+\end{enumerate}
+
+\section*{第 1 章综合习题}
+\addcontentsline{toc}{section}{第 1 章综合习题}
+
+\begin{problem}{MAblue}{1.0.6}
+    设 $\{ a_n \}$ 是正严格单调递增数列. 求证：若 $a_{n+1} - a_n$ 有界，则对任意 $\alpha \in (0, 1)$ 有
+    \[
+        \lim_{n \to \infty} \left( a_{n+1}^\alpha - a_n^\alpha \right) = 0.
+    \]
+    并说明此结论的逆不对，即，存在正严格递增数列 $\{ a_n \}$ 使得对任意 $\alpha \in (0, 1)$ 有 $\lim_{n \to \infty} \left( a_{n+1}^\alpha - a_n^\alpha \right) = 0$，但是 $a_{n+1} - a_n$ 无界.（提示：考虑 $a_n = n \ln n$.）
+\end{problem}
+
+\begin{proof}
+    不妨设 $0 < a_{n+1} - a_n \leqslant M \ (M > 0)$，则
+    \[
+        0 < a_{n+1}^\alpha - a_n^\alpha < a_n^\alpha \left( \left( 1 + \frac M {a_n} \right)^\alpha - 1 \right) < a_n^\alpha \left( 1 + \frac M {a_n} - 1 \right) = M a_n^{\alpha-1}.
+    \]
+    故由夹逼原理知，$\lim_{n \to \infty} \left(a_{n+1}^{\alpha}-a_n^{\alpha}\right) = 0$.
+\end{proof}
+
+{\flushleft 对其逆命题，考虑反例 $a_n = n \ln n$，易得不成立.}
+
+\begin{mnote}
+    事实上，若以 $n$ 为标准，逆命题中 $a_{n+1} - a_n$ 无界的条件要求 $a_n$ 是一个 $k (> 1)$ 阶无穷大量，也即 $a_n \sim n^k \ (n \to \infty)$. 然而在我们试取某个具体的 $k$ 后，我们发现使 $\lim_{n \to \infty} \left( a_{n+1}^\alpha - a_n^\alpha \right) = 0$ 成立的 $\alpha$ 的范围缩小到了 $\left( 0, \frac 1 k \right)$. 那么为了证伪逆命题，我们需要 $k$ 无限地接近 $1$. 另一方面，我们知道对任意 $\alpha > 0$ 有 $\lim_{n \to \infty} \frac{\ln n}{n^\alpha} = 0$. 这启发我们将 $\ln n$ 视为一个“$\varepsilon$ 阶无穷大量”，其中的 $\varepsilon$ 蕴含了极限思想，表示“无穷小但不为零”. 如此一来，我们自然地想到取 $a_n = n \ln n$，也即 $k = 1 + \varepsilon$，便得到了我们想要的结果. 此外，将 $\ln x$ 视为“$\varepsilon$ 阶无穷大量”的思想亦有助于我们理解 $\ln x$ 是 $\frac 1 x$ 的原函数这一事实.
+\end{mnote}
+
+\begin{problem}{MAblue}{1.0.7}
+    设数列 $\{ a_n \}$ 满足 $\lim_{n \to \infty} (a_{n+1} - a_n) = a$，证明：$\lim_{n \to \infty} \frac {a_n} n = a$.
+\end{problem}
+
+{\flushleft 此即 \textbf{Cauchy 命题}.}
+
+\begin{center}
+    \begin{minipage}{0.85\textwidth}
+        \begin{theorem}{Cauchy 命题}{}
+            若数列 $\{ a_n \}$ 满足 $\lim_{n \to \infty} a_n = a$，则
+            \[
+                \lim_{n \to \infty} \frac {a_1 + a_2 + \cdots + a_n} n = a.
+            \]
+            \tcblower
+            \begin{proof}
+                由 $\lim_{n \to \infty} a_n = a$ 知，对任意 $\varepsilon > 0$，存在 $N \in \N_+$ 使得当 $n > N$ 时，有
+                \[
+                    a - \varepsilon < a_n < a + \varepsilon.
+                \]
+                设 $S = a_1 + a_2 + \cdots + a_N$，则当 $n > N$ 时，有
+                \[
+                    \frac {S + (n-N)(a-\varepsilon)} n < \frac {a_1 + a_2 + \cdots + a_n} n < \frac {S + (n-N)(a+\varepsilon)} n.
+                \]
+                令 $n \to \infty$，则由夹逼原理知
+                \[
+                    \lim_{n \to \infty} \frac {a_1 + a_2 + \cdots + a_n} n = a. \qedhere
+                \]
+            \end{proof}
+            亦可由 Stolz 定理立得.
+        \end{theorem}
+    \end{minipage}
+\end{center}
+
+\begin{problem}{MAblue}{1.0.8}
+    证明：若 $\lim_{n \to \infty} a_n = a$，且 $a_n > 0$，则
+    \[
+        \lim_{n \to \infty} \sqrt[n]{a_1 a_2 \cdots a_n} = a.
+    \]
+\end{problem}
+
+\begin{proof}
+    当 $a \neq 0$ 时，有 $\lim_{n \to \infty} \frac 1 {a_n} = \frac 1 a$. 又由均值不等式有
+    \[
+        \frac{n}{\frac 1 {a_1} + \frac 1 {a_2} + \cdots + \frac 1 {a_n}} \leqslant \sqrt[n]{a_1a_2\cdots a_n} \leqslant \frac {a_1+a_2+\cdots+a_n} n.
+    \]
+    由 Cauchy 命题易知
+    \[
+        \lim_{n \to \infty} \frac{n}{\frac 1 {a_1} + \frac 1 {a_2} + \cdots + \frac 1 {a_n}} = \frac 1 {\frac 1 a} = a = \lim_{n \to \infty} \frac {a_1+a_2+\cdots+a_n} n.
+    \]
+    故由夹逼原理知，$\lim_{n \to \infty} \sqrt[n]{a_1a_2\cdots a_n} = a$.
+    
+    {\flushleft 当 $a = 0$ 时，利用不等式 $0 < \sqrt[n]{a_1a_2\cdots a_n} \leqslant \frac {a_1+a_2+\cdots+a_n} n$ 即可类似地证明.}
+\end{proof}
+
+{\flushleft 或利用}
+\[
+    \lim_{n \to \infty} \sqrt[n]{a_1 a_2 \cdots a_n} = \lim_{n \to \infty} \exp\left( \frac {\ln a_1 + \ln a_2 + \cdots + \ln a_n} n \right) = \exp(\ln a) = a,
+\]
+亦可证明.
+
+\begin{problem}{MAblue}{1.0.12}
+    设 $\{ a_n \}$ 且 $a_n \to a \in \R$，又设 $b_n$ 是正数列，且 $c_n = \frac{a_1b_1 + a_2b_2 + \cdots + a_nb_n}{b_1 + b_2 + \cdots + b_n}$. 求证：
+    \begin{enumerate}
+        \item[(1)]
+        数列 $\{ c_n \}$ 收敛；
+        \item[(2)]
+        若 $(b_1 + b_2 + \cdots + b_n) \to +\infty$，则 $\lim_{n \to \infty} c_n = a$.
+    \end{enumerate}
+\end{problem}
+
+\begin{proof}
+    设 $B_n = b_1 + b_2 + \cdots + b_n$. 若 $n \to \infty$ 时 $B_n \to B \in \R$，则对任意 $\varepsilon > 0$，存在 $N \in \N_+$，使得当 $m > n > N$ 时有
+    \[
+        |B_n - B_m| = |b_{n+1} + b_{n+2} + \cdots + b_m| < \varepsilon.
+    \]
+    又 $\{ a_n \}$ 收敛，不妨设 $|a_n| \leqslant M$，则
+    \[
+        |a_{n+1}b_{n+1} + a_{n+2}b_{n+2} + \cdots + a_mb_m| < M\varepsilon.
+    \]
+    故由 Cauchy 收敛准则知，数列 $\left\{ \sum_{k=1}^n a_kb_k \right\}$ 收敛，进而数列 $\{ c_n \}$ 收敛.
+
+    {\flushleft 否则若 $n \to \infty$ 时 $B_n \to +\infty$，则由 Stolz 定理知}
+    \[
+        \lim_{n \to \infty} c_n = \lim_{n \to \infty} \frac{a_nb_n}{b_n} = a.
+    \]
+    则 (1)，(2) 俱得证.
+\end{proof}
+
+\begin{problem}{MAblue}{1.0.16}
+    设 $\xi$ 是一个无理数. $a, b$ 是实数，且 $a < b$，求证：存在整数 $m, n$ 使得 $m + n \xi \in (a, b)$，即，集合
+    \[
+        S = \{ m + n \xi \mid m, n \in \Z \}
+    \]
+    在 $\R$ 稠密.
+\end{problem}
+
+\begin{proof}
+    不妨设 $\xi > 0$，考虑以下引理：
+    \begin{center}
+        \begin{minipage}{0.85\textwidth}
+            \begin{lemma}{Dirichlet 逼近定理}{}
+                对任意 $x \in \R$ 和 $k \in \N_+$，存在 $p, q \in \Z$ 使得 $0 < |qx - p| < \frac 1 k$.
+                \tcblower
+                \begin{proof}
+                    考虑 $k$ 个区间
+                    \[
+                        \left[ 0, \frac 1 k \right),\ \left[ \frac 1 k, \frac 2 k \right),\ \ldots,\ \left[ 1 - \frac 1 k, 1 \right)
+                    \]
+                    及 $k + 1$ 个数
+                    \[
+                        0, \{ x \}, \{ 2x \}, \ldots, \{ kx \},
+                    \]
+                    则由鸽巢原理知，必有两个数位于同一区间内，不妨设为 $\{ ix \}, \{ jx \}$，则
+                    \[
+                        0 < |\{ ix \} - \{ jx \}| = |(i-j)x - ([ix] - [jx])| < \frac 1 k.
+                    \]
+                    取 $p = [ix] - [jx],\ q = i-j$，则引理得证.
+                \end{proof}
+            \end{lemma}
+        \end{minipage}
+    \end{center}
+    设 $m_0 + n_0 \xi > a$ 是 $S$ 中最小的满足此性质的数，则若 $m_0 + n_0 \xi \geqslant b$，取 $k = \left[ \frac 1 {b - a} \right] + 1$，由引理有 $m_0 + n_0 \xi - |q\xi - p| > b - \frac 1 k > a$，矛盾，故必有 $m_0 + n_0 \xi \in (a, b)$.
+\end{proof}

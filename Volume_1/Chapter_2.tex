@@ -1,0 +1,135 @@
+\chapter{单变量函数的连续性}
+
+\section{连续函数的基本概念}
+
+\begin{problem}{MAblue}{2.1.15}
+    设 $f(x)$ 在 $\R$ 上连续，且对于任意 $x, y$ 有 $f(x+y) = f(x) + f(y)$. 求证 $f(x) = cx$，其中 $c$ 是常数.
+\end{problem}
+
+\begin{proof}
+    易知 $f(nx) = nf(x) \ (n \in \Z)$，进而对任意有理数 $\frac p q$ 有
+    \[
+        f\left( \frac p q x \right) = \frac p q f(x).
+    \]
+    由有理数的稠密性知，对任意实数 $\alpha$，总存在有理数列 $\{ a_n \}$ 满足 $\lim_{n \to \infty} a_n = \alpha$. 考虑
+    \[
+       f(a_n x) = a_n f(x),
+    \]
+    由于 $f(x)$ 连续，令 $n \to \infty$ 即得 $f(\alpha x) = \alpha f(x)$. 故 $f(x) = x f(1)$，也即 $c = f(1)$.
+\end{proof}
+
+\section{闭区间上连续函数的性质}
+
+\begin{problem}{MAblue}{2.2.6}
+    设函数 $f(x)$ 在 $[0, 2a]$ 上连续，且 $f(0) = f(2a)$. 证明：在区间 $[0, a]$ 上存在某个 $x_0$，使得 $f(x_0) = f(x_0 + a)$.
+\end{problem}
+
+\begin{proof}
+    设 $g(x) = f(x) - f(x+a) \ (0 \leqslant x \leqslant a)$，则 $g(0) = -g(a)$，由零点定理可得欲证.
+\end{proof}
+
+\begin{problem}{MAblue}{2.2.7}
+    试证：若函数 $f(x)$ 在 $[a, b]$ 上连续，$x_1, x_2, \ldots, x_n$ 为此区间中的任意值，则在 $[a, b]$ 中有一点 $\xi$，使得
+    \[
+        f(\xi) = \frac 1 n \left( f(x_1) + f(x_2) + \cdots + f(x_n) \right).
+    \]
+    更一般地，若 $q_1, q_2, \ldots, q_n \in \R_+$，且 $q_1 + q_2 + \cdots + q_n = 1$，则在 $[a, b]$ 中有一点 $\xi$，使得
+    \[
+        f(\xi) = q_1f(x_1) + q_2f(x_2) + \cdots + q_nf(x_n).
+    \]
+\end{problem}
+
+\begin{proof}
+    显然有 $\min\left( f(x_1), f(x_2), \ldots, f(x_n) \right) \leqslant f(\xi) \leqslant \max\left( f(x_1), f(x_2), \ldots, f(x_n) \right)$，则由介值定理可得欲证.
+\end{proof}
+
+\begin{problem}{MAblue}{2.2.16}
+    给出一个在 $(-\infty, +\infty)$ 上连续且有界但不一致连续的函数.
+\end{problem}
+
+\begin{solution}
+    $f(x) = \sin x^2$. 由连续且有界想到基本初等函数中的 $\sin x$（或 $\cos x$），而不一致连续的条件启发我们寻找一个任意陡的函数，故想到 $\sin x^2$.
+\end{solution}
+
+\section*{第 2 章综合习题}
+\addcontentsline{toc}{section}{第 2 章综合习题}
+
+\begin{problem}{MAblue}{2.0.5}
+    设 $f(x)$ 在区间 $[0, 1]$ 上连续，且 $f(0) = f(1)$. 证明：对任意自然数 $n$，在区间 $\left[ 0, 1 - \frac 1 n \right]$ 中有一点 $\xi$，使得 $f(\xi) = f\left( \xi + \frac 1 n \right)$.
+\end{problem}
+
+\begin{proof}
+    设 $g(x) = f(x) - f(x+\frac 1 n) \ (0 \leqslant x \leqslant 1 - \frac 1 n)$，若存在 $g(\xi) = 0$，命题得证；否则有 $g(0) + g(\frac 1 n) + \cdots + g(1-\frac 1 n) = 0$，其中必有两项异号，由零点定理可得欲证.
+\end{proof}
+
+\begin{problem}{MAblue}{2.0.8}
+    设函数 $f(x)$ 定义在区间 $[a, b]$ 上，满足条件：$a \leqslant f(x) \leqslant b$，且对 $[a, b]$ 中任意的 $x, y$ 有
+    \[
+        |f(x) - f(y)| \leqslant k|x - y|,
+    \]
+    其中常数 $k \in (0, 1)$，证明
+    \begin{enumerate}
+        \item[(1)]
+        存在唯一的 $x_0 \in [a, b]$，使得 $f(x_0) = x_0$.
+        \item[(2)]
+        任取 $x_1 \in [a, b]$，并定义数列 $\{ x_n \}$：$x_{n+1} = f(x_n) \ (n = 1, 2, \cdots)$，则 $\lim_{n \to \infty} x_n = x_0$.
+        \item[(3)]
+        给出一个在实轴上的连续函数，使得对任意 $x \neq y$ 有 $|f(x) - f(y)| < |x-y|$，但方程 $f(x) - x = 0$ 无解.
+    \end{enumerate}
+\end{problem}
+
+\begin{enumerate}
+    \item[(1)]
+    \begin{proof}
+        设 $g(x) = f(x) - x$，则 $g(a) \geqslant 0,\ g(b) \leqslant 0$. 故由零点定理知存在 $x_0 \in [a, b]$ 使得 $g(x_0) = 0$，也即 $f(x_0) = x_0$. 若存在另一 $x_0' \in [a, b]$ 满足 $f(x_0') = x_0'$，则
+        \[
+            |f(x_0) - f(x_0')| = |x_0 - x_0'| > k|x_0 - x_0'|,
+        \]
+        与题设矛盾. 故 $x_0$ 是唯一的.
+    \end{proof}
+    \item[(2)]
+    \begin{proof}
+        由题设有 $|x_{n+1} - x_n| \leqslant k|x_n - x_{n-1}| \ (n \geqslant 2)$. 设 $M = \left| \dfrac{x_2 - x_1}{k^2} \right|$，则对任意 $m > n$，有
+        \begin{align*}
+            |x_n - x_m| &\leqslant |x_n - x_{n+1}| + \cdots + |x_{m-1} - x_m| \\
+            &\leqslant M k^n + M k^{n+1} + \cdots + M k^m.
+        \end{align*}
+        故由 1.2.17.(3) 及夹逼原理知，数列 $\{ x_n \}$ 是基本列. 进而由 Cauchy 收敛准则知，数列 $\{ x_n \}$ 收敛. 设 $\lim_{n \to \infty} x_n = x$，则
+        \[
+            x = f(x) \ \Rightarrow \ x = x_0.
+        \]
+        也即 $\lim_{n \to \infty} x_n = x_0$.
+    \end{proof}
+\end{enumerate}
+
+事实上，此即
+
+\begin{center}
+    \begin{minipage}{0.85\textwidth}
+        \begin{theorem}{压缩映射原理}{}
+            设 $f: [a, b] \to [a, b]$，且存在 $k \in (0, 1)$ 使得
+            \[
+                |f(x_1) - f(x_2)| \leqslant k|x_1 - x_2|
+            \]
+            对任意 $x_1, x_2 \in [a, b]$ 均成立，则
+            \begin{enumerate}[label=\arabic*$^\circ$]
+                \item
+                存在唯一的 $\xi \in [a, b]$，使得 $f(\xi) = \xi$；
+                \item
+                若数列 $\{ x_n \}$ 满足 $x_0 \in [a, b],\ x_{n+1} = f(x_n)$，则 $\lim_{n \to \infty} x_n = \xi$.
+            \end{enumerate}
+        \end{theorem}
+    \end{minipage}
+\end{center}
+
+\begin{problem}{MAblue}{2.0.10}
+    设 $f(x)$ 在 $[a, b]$ 上连续，且对任意 $x \in [a, b)$ 存在 $y \in (x, b)$ 使得 $f(y) > f(x)$. 求证：$f(b) > f(a)$.
+\end{problem}
+
+\begin{proof}
+    由题设知，存在数列 $\{ x_n \}$，满足 $x_0 = a,\ x_n < x_{n+1} < b$，且 $f(x_n) < f(x_{n+1})$. 由单调有界原理知数列 $\{ x_n \}$ 收敛，不妨设其收敛到 $c$，则必有 $c = b$，否则对任意 $x \in (c, b)$ 均有 $f(c) \geqslant f(x)$，与题设矛盾. 而当 $n > 1$ 时，我们有
+    \[
+        a = f(x_0) < f(x_1) < f(x_n).
+    \]
+    由于 $f(x)$ 连续，令 $n \to \infty$ 即得 $f(a) < f(x_1) \leqslant f(b)$.
+\end{proof}

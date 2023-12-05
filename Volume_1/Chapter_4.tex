@@ -1,0 +1,158 @@
+\chapter{不定积分}
+
+\section{不定积分及其基本计算方法}
+
+\begin{problem}{MAblue}{4.1.3}
+    用第二代换法求下列不定积分，其中的 $a$ 均为正常数.
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item[(1)]
+            $\displaystyle \int \sqrt{e^x - 2} \mathrm dx$；
+            \item[(2)]
+            $\displaystyle \int \sqrt{x^2 + a^2} \mathrm dx$；
+            \item[(3)]
+            $\displaystyle \int \frac{\mathrm dx}{(x^2-a^2)^{3/2}}$；
+            \item[(4)]
+            $\displaystyle \int \frac{x^2}{\sqrt{a^2-x^2}} \mathrm dx$；
+            \item[(5)]
+            $\displaystyle \int \frac{\mathrm dx}{1+\sqrt{x+1}}$；
+            \item[(6)]
+            $\displaystyle \int \frac{1+\ln x}{(1+x^2)^{3/2}} \mathrm dx$；
+            \item[(7)]
+            $\displaystyle \int \frac{1-\ln x}{(x - \ln x)^2} \mathrm dx$；
+            \item[(8)]
+            $\displaystyle \int \frac{\mathrm dx}{x^2\sqrt{x^2+a^2}}$；
+            \item[(9)]
+            $\displaystyle \int \frac{x+2}{\sqrt[3]{2x+1}} \mathrm dx$；
+            \item[(10)]
+            $\displaystyle \int \frac{x^{1/7}+x^{1/2}}{x^{8/7}+x^{1/14}} \mathrm dx$；
+            \item[(11)]
+            $\displaystyle \int \frac{x-1}{x^2\sqrt{x^2-1}} \mathrm dx$；
+            \item[(12)]
+            $\displaystyle \int \frac{\mathrm dx}{x^8(1+x^2)} \mathrm dx$.
+        \end{enumerate}
+    \end{multicols}
+\end{problem}
+
+\begin{enumerate}
+    \item[(10)]
+    \begin{solution}
+        \begin{align*}
+            \int \frac{x^{1/7}+x^{1/2}}{x^{8/7}+x^{1/14}} \mathrm dx &= 14 \int \frac{t^{19} + t^{14}}{t^{15} + 1} \mathrm dt \ (x = t^{14}) \\
+            &= \frac {14} 5 \int \frac{u^2}{u^2-u+1} \mathrm du \ (u = t^5) \\
+            &= \frac {14} 5 \int \mathrm du + \frac 7 5 \int \frac{2u - 1}{u^2-u+1} \mathrm du - \frac 7 5 \int \frac{\mathrm d \left( u - \frac 1 2 \right)}{\left( u-\frac 1 2 \right)^2 + \frac 3 4} \\
+            &= \frac {14} 5 x^{5/14} + \ln\left( x^{5/7} - x^{5/14} + 1 \right) + \frac 2 {\sqrt 3} \arctan\left( \frac{2x^{5/14} - 1}{\sqrt 3} \right) + C.
+        \end{align*}
+    \end{solution}
+    \item[(12)]
+    \begin{solution}
+        \begin{align*}
+            \int \frac 1 {x^8(1+x^2)} \mathrm dx &= \int \left( \frac 1 {x^8} - \frac 1 {x^6} + \frac 1 {x^4} - \frac 1 {x^2} + \frac 1 {1+x^2} \right) \mathrm dx \\
+            &= - \frac 1 {7x^7} + \frac 1 {5x^5} - \frac 1 {3x^3} + \frac 1 x + \arctan x + C.
+        \end{align*}
+    \end{solution}
+\end{enumerate}
+
+\begin{problem}{MAblue}{3.4.7}
+    求下列不定积分.
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item[(1)]
+            $\displaystyle \int \frac{\mathrm dx}{1+e^x}$；
+            \item[(2)]
+            $\displaystyle \int \frac{x^2-1}{x^4+x^2+1} \mathrm dx$；
+            \item[(3)]
+            $\displaystyle \int \frac{\mathrm dx}{x^4+x^6}$；
+            \item[(4)]
+            $\displaystyle \int x \sqrt{x-2} \mathrm dx$；
+            \item[(5)]
+            $\displaystyle \int \frac {\sqrt{x-1}\arctan\sqrt{x-1}} x \mathrm dx$；
+            \item[(6)]
+            $\displaystyle \int \frac{xe^x}{\sqrt{e^x-2}} \mathrm dx$；
+            \item[(7)]
+            $\displaystyle \int xe^x \sin x \mathrm dx$；
+            \item[(8)]
+            $\displaystyle \int \frac{\mathrm dx}{(1+\tan x)\sin^2 x}$；
+            \item[(9)]
+            $\displaystyle \int \frac{\sqrt{1-x}}{1-\sqrt x} \mathrm dx$；
+            \item[(10)]
+            $\displaystyle \int \sqrt{\frac{x-1}{x+1}} \cdot \frac{\mathrm dx}{x^2}$；
+            \item[(11)]
+            $\displaystyle \int \frac{x \arctan x}{(1+x^2)^3} \mathrm dx$；
+            \item[(12)]
+            $\displaystyle \int \frac x {1+\sin x} \mathrm dx$；
+            \item[(13)]
+            $\displaystyle \int \arcsin \sqrt x \mathrm dx$；
+            \item[(14)]
+            $\displaystyle \int \frac{x + \sin x}{1 + \cos x} \mathrm dx$；
+            \item[(15)]
+            $\displaystyle \int x \sin^2 x \mathrm dx$；
+            \item[(16)]
+            $\displaystyle \int \frac{x^3}{\sqrt{1+x^2}} \mathrm dx$；
+            \item[(17)]
+            $\displaystyle \int \frac{\arctan x}{x^2 (1+x^2)} \mathrm dx$；
+            \item[(18)]
+            $\displaystyle \int \frac{\arctan e^x}{e^x} \mathrm dx$；
+            \item[(19)]
+            $\displaystyle \int e^{2x} (1+\tan x)^2 \mathrm dx$；
+            \item[(20)]
+            $\displaystyle \int \frac{x^2}{(x \sin x + \cos x)^2} \mathrm dx$；
+            \item[(21)]
+            $\displaystyle \int \cos x \cos 2x \cos 3x \mathrm dx$；
+            \item[(22)]
+            $\displaystyle \int \frac{\mathrm dx}{\sqrt{x-1}+\sqrt{x+1}}$；
+            \item[(23)]
+            $\displaystyle \int \frac{\mathrm dx}{\sqrt{\sqrt x - 1}}$；
+            \item[(24)]
+            $\displaystyle \int \sqrt{\frac x {1-x\sqrt x}} \mathrm dx$；
+            \item[(25)]
+            $\displaystyle \int e^{-\frac {x^2} 2} \frac{\cos x - 2x \sin x}{2 \sqrt{\sin x}} \mathrm dx$；
+            \item[(26)]
+            $\displaystyle \int \frac{xe^x}{(1+x)^2} \mathrm dx$.
+        \end{enumerate}
+    \end{multicols}
+\end{problem}
+
+\begin{enumerate}
+    \item[(26)]
+    \begin{solution}
+        \[
+            \int \frac{xe^x}{(1+x)^2} \mathrm dx = -\frac{xe^x}{1+x} + \int e^x \mathrm dx = \frac{e^x}{1+x} + C.
+        \]
+    \end{solution}
+\end{enumerate}
+
+\section{有理函数的不定积分}
+
+\begin{problem}{MAblue}{4.2.1}
+    求下列有理函数的不定积分.
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item[(1)]
+            $\displaystyle \int \frac{\mathrm dx}{x^2 + x - 2}$；
+            \item[(2)]
+            $\displaystyle \int \frac{x^4}{x^2 + 1} \mathrm dx$；
+            \item[(3)]
+            $\displaystyle \int \frac{x^3 + 1}{x^3 - x} \mathrm dx$；
+            \item[(4)]
+            $\displaystyle \int \frac{\mathrm dx}{(x^2+1)(x^2+x)}$；
+            \item[(5)]
+            $\displaystyle \int \frac x {(x+1)^2(x^2+x+1)} \mathrm dx$；
+            \item[(6)]
+            $\displaystyle \int \frac{x^2+1}{x^4+1} \mathrm dx$；
+            \item[(7)]
+            $\displaystyle \int \frac{x^5-x}{x^8+1} \mathrm dx$；
+            \item[(8)]
+            $\displaystyle \int \frac{x^{15}}{(x^8+1)^2} \mathrm dx$.
+        \end{enumerate}
+    \end{multicols}
+\end{problem}
+
+\begin{enumerate}
+    \item[(8)]
+    \begin{solution}
+        \[
+            \int \frac{x^{15}}{(x^8+1)^2} \mathrm dx = \frac 1 8 \int \frac{x^8}{(x^8+1)^2} \mathrm d(x^8) = \frac 1 8 \ln(x^8+1) + \frac 1 {8(x^8+1)} + C.
+        \]
+    \end{solution}
+\end{enumerate}

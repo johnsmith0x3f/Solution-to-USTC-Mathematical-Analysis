@@ -1,0 +1,143 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[10pt, oneside, fontset=adobe]{ctexbook} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\setlength{\headheight}{14pt}
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+% \usepackage{sectsty}
+% \allsectionsfont{\rmfamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc, notlof, notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles, subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\definecolor{lightblue}{RGB}{70,130,196}
+\definecolor{MAblue}{RGB}{34,53,130}
+\definecolor{MAgreen}{RGB}{18,135,108}
+\definecolor{MApurple}{RGB}{151,67,155}
+
+\newtcbtheorem{theorem}{Theorem}{
+    coltitle=white, fonttitle=\bfseries,
+    colback=red!5, colframe=red!75!black,
+    fontupper=\kaishu,
+}{}
+
+\newtcbtheorem{lemma}{Lemma}{
+    coltitle=white, fonttitle=\bfseries,
+    colback=SeaGreen!10!CornflowerBlue!10, colframe=RoyalPurple!55!Aquamarine!100!,
+    fontupper=\kaishu,
+}{}
+
+\newtcolorbox{problem}[3][]{
+    title={#3}, coltitle=white, fonttitle=\bfseries,
+    colback=#2!5!white, colframe=#2!75!black,
+    #1,
+}
+
+\usepackage[colorlinks=true, allcolors=lightblue]{hyperref}
+
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\newtheorem*{mnote}{注}
+\newtheorem*{mmark}{注意}
+\newtheorem*{think}{思考}
+
+\newenvironment{solution}{\begin{proof}[解]}{\end{proof}}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\ovec}{\overrightarrow}
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{《数学分析讲义》习题答案}
+\author{johnsmith0x3f}
+\date{\today} % Activate to display a given date or no date (if empty),
+              % otherwise the current date is printed
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+
+\part*{数学分析讲义 \ 第一册}
+\addcontentsline{toc}{part}{数学分析讲义 \ 第一册}
+
+\input{Volume_1/Chapter_1}
+
+\input{Volume_1/Chapter_2}
+
+\input{Volume_1/Chapter_3}
+
+\input{Volume_1/Chapter_4}
+
+\input{Volume_1/Chapter_5}
+
+\input{Volume_1/Chapter_6}
+
+\input{Volume_1/Chapter_7}
+
+\part*{数学分析讲义 \ 第二册}
+\addcontentsline{toc}{part}{数学分析讲义 \ 第二册}
+
+\input{Volume_2/Chapter_8}
+
+\backmatter
+
+\end{document}
